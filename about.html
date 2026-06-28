@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | The Green Gene</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --green: #2d6a4f; --green-light: #52b788; --green-pale: #d8f3dc; --ink: #1b1b1b; --muted: #555; --border: #ccc; --bg: #f9f6f0; --white: #fff; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; }
+  nav { background: var(--green); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 56px; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1.3rem; font-weight: 700; text-decoration: none; }
+  .nav-links { display: flex; gap: 1.5rem; }
+  .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.9rem; }
+  .nav-links a:hover { color: var(--white); }
+  .page-hero { background: var(--green); color: var(--white); padding: 3rem 2rem 2.5rem; text-align: center; border-bottom: 4px solid var(--green-light); }
+  .page-hero p { font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green-light); margin-bottom: 0.5rem; }
+  .page-hero h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; }
+  .container { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+  .card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 1.75rem 2rem; margin-bottom: 1.5rem; }
+  .card-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); font-weight: 600; margin-bottom: 0.5rem; }
+  .card h2 { font-family: 'Playfair Display', serif; font-size: 1.35rem; margin-bottom: 0.9rem; color: var(--ink); }
+  .card p { color: var(--muted); font-size: 0.95rem; margin-bottom: 0.7rem; }
+  .card p:last-child { margin-bottom: 0; }
+
+  .editor-profile { display: flex; align-items: flex-start; gap: 1.25rem; }
+  .editor-avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--green); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; color: var(--white); font-size: 1.4rem; flex-shrink: 0; }
+  .editor-info h3 { font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; }
+  .editor-info p { font-size: 0.88rem; color: var(--muted); margin-bottom: 0.3rem; }
+  .editor-info a { color: var(--green); font-size: 0.85rem; text-decoration: none; font-weight: 500; }
+  .editor-info a:hover { text-decoration: underline; }
+
+  .sewa-highlight { background: var(--green-pale); border-left: 3px solid var(--green); padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin-top: 0.75rem; }
+  .sewa-highlight p { color: #2d4a3e; font-size: 0.9rem; margin: 0; }
+
+  .goals-list { list-style: none; margin-top: 0.75rem; }
+  .goals-list li { display: flex; gap: 0.75rem; padding: 0.55rem 0; border-bottom: 1px solid #eee; font-size: 0.92rem; color: var(--muted); align-items: flex-start; }
+  .goals-list li:last-child { border: none; }
+  .goals-list .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green-light); flex-shrink: 0; margin-top: 8px; }
+
+  footer { background: var(--green); color: rgba(255,255,255,0.7); text-align: center; padding: 2rem; font-size: 0.85rem; }
+  footer strong { color: var(--white); }
+  footer a { color: var(--green-light); text-decoration: none; }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">🌿 The Green Gene</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="archive.html">Issues</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <p>The Green Gene</p>
+  <h1>About this project</h1>
+</div>
+
+<div class="container">
+
+  <div class="card">
+    <p class="card-label">The Newsletter</p>
+    <h2>What is The Green Gene?</h2>
+    <p>The Green Gene is a quarterly environmental newsletter published by a Class X student from DPS Patna. Each issue covers one sustainability theme — with current news, actionable eco tips, an interactive quiz, and contributions from classmates (the "fellow Genes").</p>
+    <p>The goal is simple: make environmental awareness actually interesting and relevant for students our age, especially in a city like Patna where we live with both monsoon floods and summer water scarcity every single year.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-label">The Editor</p>
+    <h2>Who runs this?</h2>
+    <div class="editor-profile">
+      <div class="editor-avatar">A</div>
+      <div class="editor-info">
+        <h3>Ayushman Chaudhary X-G</h3>
+        <p>Class X · DPS Patna · SEWA Editor</p>
+        <a href="contact.html">Get in touch →</a>
+      </div>
+    </div>
+    <p style="margin-top: 1.25rem;">This newsletter is edited, written, and published by me as part of my SEWA project for the academic year 2025–26. Reader contributions, corrections, and ideas are always welcome.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-label">CBSE SEWA</p>
+    <h2>What is SEWA?</h2>
+    <p>SEWA stands for Social Empowerment through Work Education and Action. It is a compulsory part of the CBSE curriculum for Classes IX–XII under the Health and Physical Education (HPE) strand.</p>
+    <div class="sewa-highlight">
+      <p>SEWA aims to connect students to their communities and environment through real, hands-on projects — moving learning beyond the classroom walls.</p>
+    </div>
+    <p style="margin-top: 0.9rem;">The Green Gene was chosen as a SEWA activity under the Environment Conscious Citizens strand (Project 6, Section 6.2.2.2), which specifically encourages students to create sustainability publications for their school community.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-label">Goals</p>
+    <h2>What this project aims to do</h2>
+    <ul class="goals-list">
+      <li><span class="dot"></span> Raise environmental awareness among students in a format they'll actually read.</li>
+      <li><span class="dot"></span> Create a platform for classmates to share eco observations and ideas.</li>
+      <li><span class="dot"></span> Document real sustainability issues relevant to Patna and Bihar.</li>
+      <li><span class="dot"></span> Build a habit of researching, writing, and publishing — skills beyond just SEWA.</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <strong>The Green Gene</strong> · A SEWA Project · Patna, Bihar<br>
+  Created under the CBSE Work Experience Programme 2025–26 ·
+  <a href="contact.html">Contact the editor</a>
+</footer>
+</body>
+</html>

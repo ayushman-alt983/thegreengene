@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | The Green Gene</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --green: #2d6a4f; --green-light: #52b788; --green-pale: #d8f3dc; --ink: #1b1b1b; --muted: #555; --border: #ccc; --bg: #f9f6f0; --white: #fff; }
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; }
+nav { background: var(--green); padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 56px; position: sticky; top: 0; z-index: 100; flex-wrap: wrap; gap: 0.5rem; }
+.nav-logo { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1.2rem; font-weight: 700; text-decoration: none; }
+.nav-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+.nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.82rem; }
+.nav-links a:hover { color: var(--white); }
+.page-hero { background: var(--green); color: var(--white); padding: 3rem 2rem 2.5rem; text-align: center; border-bottom: 4px solid var(--green-light); }
+.page-hero .eyebrow { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green-light); margin-bottom: 0.5rem; }
+.page-hero h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; }
+.page-hero p { color: rgba(255,255,255,0.75); margin-top: 0.5rem; font-size: 0.95rem; }
+.container { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+.card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 1.75rem 2rem; margin-bottom: 1.5rem; }
+.card-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); font-weight: 600; margin-bottom: 0.4rem; }
+.card h2 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 0.9rem; }
+.card p { color: var(--muted); font-size: 0.93rem; margin-bottom: 0.7rem; }
+.email-block { display: flex; align-items: center; gap: 1rem; background: var(--green-pale); border: 1px solid var(--green-light); border-radius: 8px; padding: 1rem 1.25rem; margin: 1rem 0; flex-wrap: wrap; }
+.email-block span { font-size: 0.88rem; color: var(--muted); }
+.email-block a { font-size: 1rem; font-weight: 600; color: var(--green); text-decoration: none; }
+.email-block a:hover { text-decoration: underline; }
+.copy-btn { margin-left: auto; background: var(--green); color: var(--white); border: none; border-radius: 6px; padding: 0.4rem 0.9rem; font-size: 0.82rem; cursor: pointer; font-family: 'Inter', sans-serif; }
+.copy-btn:hover { background: #1e4d38; }
+.submit-type { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 0.75rem; margin-top: 0.75rem; }
+.type-card { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 0.9rem 1rem; }
+.type-card .icon { font-size: 1.4rem; margin-bottom: 0.3rem; }
+.type-card h4 { font-size: 0.9rem; font-weight: 600; color: var(--ink); margin-bottom: 0.2rem; }
+.type-card p { font-size: 0.8rem; color: var(--muted); margin: 0; }
+.rules-list { list-style: none; margin-top: 0.75rem; }
+.rules-list li { display: flex; gap: 0.75rem; padding: 0.5rem 0; border-bottom: 1px solid #eee; font-size: 0.9rem; color: var(--muted); }
+.rules-list li:last-child { border: none; }
+.rules-list .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green-light); flex-shrink: 0; margin-top: 9px; }
+footer { background: var(--green); color: rgba(255,255,255,0.7); text-align: center; padding: 2rem; font-size: 0.85rem; }
+footer strong { color: var(--white); }
+footer a { color: var(--green-light); text-decoration: none; }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">🌿 The Green Gene</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="archive.html">Issues</a>
+    <a href="species.html">New Species</a>
+    <a href="people.html">People</a>
+    <a href="greywater.html">Greywater</a>
+    <a href="waste.html">Zero Waste</a>
+    <a href="crossword.html">Crossword</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+<div class="page-hero">
+  <p class="eyebrow">The Green Gene</p>
+  <h1>Contact</h1>
+  <p>Reach the editor, submit your work, or share ideas for the next issue</p>
+</div>
+<div class="container">
+  <div class="card">
+    <p class="card-label">Editor's Email</p>
+    <h2>Get in touch</h2>
+    <p>For submissions, feedback, corrections, or just to say hi — email the editor directly.</p>
+    <div class="email-block">
+      <div>
+        <span>Editor's email</span><br>
+        <a href="mailto:p-1661-16@dpspatna.com">p-1661-16@dpspatna.com</a>
+      </div>
+      <button class="copy-btn" onclick="navigator.clipboard.writeText('p-1661-16@dpspatna.com'); this.textContent='Copied!'; setTimeout(()=>this.textContent='Copy',2000)">Copy</button>
+    </div>
+    <p style="font-size:0.83rem; color:#999;">Response time: within a few days. Please mention "Green Gene" in your subject line.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-label">Reader's Column</p>
+    <h2>Submit to the newsletter</h2>
+    <p>Each issue features a Reader's Column — content made by fellow Genes. Here's what we accept:</p>
+    <div class="submit-type">
+      <div class="type-card"><div class="icon">🎨</div><h4>Nature art</h4><p>Sketches, paintings, digital art of plants, animals, landscapes</p></div>
+      <div class="type-card"><div class="icon">✍️</div><h4>Poems & stories</h4><p>Short eco-themed creative writing, haikus, flash fiction</p></div>
+      <div class="type-card"><div class="icon">📸</div><h4>Photographs</h4><p>Nature photos taken around Patna or on trips</p></div>
+      <div class="type-card"><div class="icon">💡</div><h4>Eco observations</h4><p>Something you noticed about your environment worth sharing</p></div>
+      <div class="type-card"><div class="icon">🗞️</div><h4>Posters</h4><p>Awareness posters on any environmental issue</p></div>
+      <div class="type-card"><div class="icon">🔬</div><h4>Mini research</h4><p>A short write-up on any eco topic you're curious about</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-label">Submission Guidelines</p>
+    <h2>Before you send</h2>
+    <ul class="rules-list">
+      <li><span class="dot"></span> Keep written submissions under 200 words unless agreed otherwise.</li>
+      <li><span class="dot"></span> Images should be clear and original — no screenshots of other people's work.</li>
+      <li><span class="dot"></span> Include your name (or initials if you want to stay anonymous) and class.</li>
+      <li><span class="dot"></span> Content should be relevant to nature, environment, or sustainability.</li>
+      <li><span class="dot"></span> The editor reserves the right to lightly edit for clarity and length.</li>
+      <li><span class="dot"></span> Submissions may be featured in print or online versions of the newsletter.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <p class="card-label">For Teachers & Staff</p>
+    <h2>Stakeholder outreach</h2>
+    <p>The Green Gene is a CBSE SEWA project under the Environment Conscious Citizens strand. If you are a teacher, parent, or school authority interested in supporting this initiative, please reach out via email.</p>
+    <p>We are also open to suggestions for future issue themes, collaboration with eco-clubs, and support for implementing greywater and zero-waste initiatives documented on this site.</p>
+  </div>
+</div>
+<footer>
+  <strong>The Green Gene</strong> · A SEWA Project · Patna, Bihar<br>
+  Created under the CBSE Work Experience Programme 2025–26 ·
+  <a href="mailto:p-1661-16@dpspatna.com">p-1661-16@dpspatna.com</a>
+</footer>
+</body>
+</html>

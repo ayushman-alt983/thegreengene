@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Species Discovered | The Green Gene</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --green: #2d6a4f; --green-light: #52b788; --green-pale: #d8f3dc; --ink: #1b1b1b; --muted: #555; --border: #ccc; --bg: #f9f6f0; --white: #fff; }
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; }
+nav { background: var(--green); padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 56px; position: sticky; top: 0; z-index: 100; }
+.nav-logo { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1.2rem; font-weight: 700; text-decoration: none; }
+.nav-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+.nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.82rem; }
+.nav-links a:hover { color: var(--white); }
+.page-hero { background: var(--green); color: var(--white); padding: 3rem 2rem 2.5rem; text-align: center; border-bottom: 4px solid var(--green-light); }
+.page-hero .eyebrow { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green-light); margin-bottom: 0.5rem; }
+.page-hero h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; }
+.page-hero p { color: rgba(255,255,255,0.75); margin-top: 0.5rem; font-size: 0.95rem; }
+.container { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+.species-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
+.species-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.species-img { background: var(--green); height: 120px; display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+.species-body { padding: 1.25rem; }
+.species-tag { display: inline-block; background: var(--green-pale); color: var(--green); font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 4px; margin-bottom: 0.5rem; }
+.species-body h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--ink); margin-bottom: 0.2rem; }
+.species-name { font-style: italic; font-size: 0.82rem; color: var(--muted); margin-bottom: 0.6rem; }
+.species-body p { font-size: 0.88rem; color: var(--muted); margin-bottom: 0.5rem; }
+.species-where { font-size: 0.78rem; color: #999; }
+.section-label { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 1rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); margin-top: 2.5rem; }
+.why-box { background: var(--green-pale); border-left: 3px solid var(--green); padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0; margin-bottom: 2rem; }
+.why-box h2 { font-family: 'Playfair Display', serif; font-size: 1.15rem; margin-bottom: 0.5rem; color: var(--ink); }
+.why-box p { font-size: 0.92rem; color: #2d4a3e; margin: 0; }
+footer { background: var(--green); color: rgba(255,255,255,0.7); text-align: center; padding: 2rem; font-size: 0.85rem; }
+footer strong { color: var(--white); }
+footer a { color: var(--green-light); text-decoration: none; }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">🌿 The Green Gene</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="archive.html">Issues</a>
+    <a href="species.html">New Species</a>
+    <a href="people.html">People</a>
+    <a href="greywater.html">Greywater</a>
+    <a href="waste.html">Zero Waste</a>
+    <a href="crossword.html">Crossword</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+<div class="page-hero">
+  <p class="eyebrow">The Green Gene</p>
+  <h1>New Species Discovered</h1>
+  <p>Life on Earth is still surprising us — here are the latest finds</p>
+</div>
+<div class="container">
+  <div class="why-box">
+    <h2>Why does this matter?</h2>
+    <p>Scientists describe roughly 15,000–20,000 new species every year. Each discovery reminds us how much of life on Earth is still unknown — and how urgently we need to protect habitats before species vanish before we even find them. Biodiversity isn't just interesting; it's the foundation of every ecosystem we depend on.</p>
+  </div>
+
+  <p class="section-label">Recent Discoveries — 2025–26</p>
+  <div class="species-grid">
+
+    <div class="species-card">
+      <div class="species-img">🐸</div>
+      <div class="species-body">
+        <span class="species-tag">Amphibian</span>
+        <h3>Glass frog with a visible heart</h3>
+        <p class="species-name">Hyalinobatrachium yaku</p>
+        <p>Discovered in the Ecuadorian Amazon, this tiny frog has transparent skin through which you can see its beating heart. It was found in a region threatened by oil extraction.</p>
+        <span class="species-where">📍 Ecuador, South America</span>
+      </div>
+    </div>
+
+    <div class="species-card">
+      <div class="species-img">🌺</div>
+      <div class="species-body">
+        <span class="species-tag">Plant</span>
+        <h3>Orchid that only blooms at night</h3>
+        <p class="species-name">Gastrodia agnicellus</p>
+        <p>A completely underground orchid from Madagascar that flowers for just a few hours after dark. It has no leaves and gets all its energy from fungi in the soil.</p>
+        <span class="species-where">📍 Madagascar</span>
+      </div>
+    </div>
+
+    <div class="species-card">
+      <div class="species-img">🦈</div>
+      <div class="species-body">
+        <span class="species-tag">Fish</span>
+        <h3>Walking shark of Papua New Guinea</h3>
+        <p class="species-name">Hemiscyllium halmahera</p>
+        <p>Uses its fins to "walk" along the ocean floor in shallow reef zones. One of four new walking shark species confirmed in recent years, all found in the Indo-Pacific.</p>
+        <span class="species-where">📍 Papua New Guinea</span>
+      </div>
+    </div>
+
+    <div class="species-card">
+      <div class="species-img">🐛</div>
+      <div class="species-body">
+        <span class="species-tag">Insect</span>
+        <h3>Tardigrade found in urban moss</h3>
+        <p class="species-name">Macrobiotus shonaicus</p>
+        <p>A new tardigrade (water bear) species collected from moss growing on a Japanese pavement. Tardigrades can survive in space, extreme pressure, and radiation.</p>
+        <span class="species-where">📍 Japan</span>
+      </div>
+    </div>
+
+    <div class="species-card">
+      <div class="species-img">🦜</div>
+      <div class="species-body">
+        <span class="species-tag">Bird</span>
+        <h3>Wakatobi flowerpecker</h3>
+        <p class="species-name">Dicaeum kuehni</p>
+        <p>A brightly coloured bird from the Wakatobi Islands of Indonesia, hiding in plain sight for decades among its relatives. Identified finally through genetic analysis.</p>
+        <span class="species-where">📍 Indonesia</span>
+      </div>
+    </div>
+
+    <div class="species-card">
+      <div class="species-img">🌿</div>
+      <div class="species-body">
+        <span class="species-tag">Plant · India</span>
+        <h3>New pitcher plant from Meghalaya</h3>
+        <p class="species-name">Nepenthes mahasiswae</p>
+        <p>A carnivorous pitcher plant discovered in the cloud forests of Northeast India. It traps insects in its liquid-filled cups. The Northeast is a global biodiversity hotspot.</p>
+        <span class="species-where">📍 Meghalaya, India</span>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="section-label" style="margin-top: 3rem;">India's biodiversity at a glance</p>
+  <div style="display:grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap:1rem; margin-bottom:2rem;">
+    <div style="background:var(--white); border:1px solid var(--border); border-radius:8px; padding:1rem; text-align:center;">
+      <div style="font-size:1.8rem; font-weight:700; color:var(--green);">8%</div>
+      <div style="font-size:0.8rem; color:var(--muted);">of world's biodiversity</div>
+    </div>
+    <div style="background:var(--white); border:1px solid var(--border); border-radius:8px; padding:1rem; text-align:center;">
+      <div style="font-size:1.8rem; font-weight:700; color:var(--green);">91,000+</div>
+      <div style="font-size:0.8rem; color:var(--muted);">animal species recorded</div>
+    </div>
+    <div style="background:var(--white); border:1px solid var(--border); border-radius:8px; padding:1rem; text-align:center;">
+      <div style="font-size:1.8rem; font-weight:700; color:var(--green);">45,000+</div>
+      <div style="font-size:0.8rem; color:var(--muted);">plant species recorded</div>
+    </div>
+    <div style="background:var(--white); border:1px solid var(--border); border-radius:8px; padding:1rem; text-align:center;">
+      <div style="font-size:1.8rem; font-weight:700; color:var(--green);">4</div>
+      <div style="font-size:0.8rem; color:var(--muted);">global biodiversity hotspots</div>
+    </div>
+  </div>
+</div>
+<footer>
+  <strong>The Green Gene</strong> · A SEWA Project · Patna, Bihar<br>
+  Created under the CBSE Work Experience Programme 2025–26 ·
+  <a href="contact.html">Contact the editor</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zero Waste Classroom | The Green Gene</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --green: #2d6a4f; --green-light: #52b788; --green-pale: #d8f3dc; --ink: #1b1b1b; --muted: #555; --border: #ccc; --bg: #f9f6f0; --white: #fff; }
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; }
+nav { background: var(--green); padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 56px; position: sticky; top: 0; z-index: 100; }
+.nav-logo { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1.2rem; font-weight: 700; text-decoration: none; }
+.nav-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+.nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.82rem; }
+.nav-links a:hover { color: var(--white); }
+.page-hero { background: var(--green); color: var(--white); padding: 3rem 2rem 2.5rem; text-align: center; border-bottom: 4px solid var(--green-light); }
+.page-hero .eyebrow { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green-light); margin-bottom: 0.5rem; }
+.page-hero h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; }
+.page-hero p { color: rgba(255,255,255,0.75); margin-top: 0.5rem; font-size: 0.95rem; }
+.container { max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+.card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 1.75rem 2rem; margin-bottom: 1.5rem; }
+.card-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); font-weight: 600; margin-bottom: 0.4rem; }
+.card h2 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 0.9rem; }
+.card p { color: var(--muted); font-size: 0.93rem; margin-bottom: 0.7rem; }
+.waste-types { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 0.75rem; }
+.waste-type { border-radius: 8px; padding: 1rem; border: 1px solid var(--border); }
+.waste-type .tag { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.4rem; }
+.waste-type h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.3rem; color: var(--ink); }
+.waste-type p { font-size: 0.82rem; color: var(--muted); margin: 0; }
+.wet { background: #e8f5e9; border-color: #81c784; } .wet .tag { color: #2e7d32; }
+.dry { background: #e3f2fd; border-color: #64b5f6; } .dry .tag { color: #1565c0; }
+.haz { background: #fff3e0; border-color: #ffb74d; } .haz .tag { color: #e65100; }
+.rej { background: #fce4ec; border-color: #f48fb1; } .rej .tag { color: #880e4f; }
+.journey-steps { margin-top: 0.75rem; }
+.journey-step { display: flex; gap: 1rem; margin-bottom: 0; position: relative; }
+.journey-step:not(:last-child)::after { content: ''; position: absolute; left: 14px; top: 30px; bottom: -12px; width: 2px; background: var(--green-light); }
+.j-icon { width: 30px; height: 30px; border-radius: 50%; background: var(--green); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; margin-top: 2px; z-index: 1; }
+.j-body { padding-bottom: 1.25rem; }
+.j-body h4 { font-size: 0.92rem; font-weight: 600; color: var(--ink); margin-bottom: 0.15rem; }
+.j-body p { font-size: 0.85rem; color: var(--muted); margin: 0; }
+.checklist { list-style: none; margin-top: 0.75rem; }
+.checklist li { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.5rem 0; border-bottom: 1px solid #eee; font-size: 0.91rem; color: var(--muted); cursor: pointer; }
+.checklist li:last-child { border: none; }
+.check-box { width: 18px; height: 18px; border: 2px solid var(--border); border-radius: 4px; flex-shrink: 0; margin-top: 2px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; }
+.checklist li.done .check-box { background: var(--green); border-color: var(--green); }
+.checklist li.done .check-box::after { content: '✓'; color: white; font-size: 0.7rem; font-weight: 700; }
+.checklist li.done span { text-decoration: line-through; color: #aaa; }
+.progress-bar { background: #eee; border-radius: 100px; height: 8px; margin-top: 1rem; overflow: hidden; }
+.progress-fill { background: var(--green); height: 100%; border-radius: 100px; transition: width 0.3s; }
+.progress-label { font-size: 0.82rem; color: var(--muted); margin-top: 0.4rem; }
+footer { background: var(--green); color: rgba(255,255,255,0.7); text-align: center; padding: 2rem; font-size: 0.85rem; }
+footer strong { color: var(--white); }
+footer a { color: var(--green-light); text-decoration: none; }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">🌿 The Green Gene</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="archive.html">Issues</a>
+    <a href="species.html">New Species</a>
+    <a href="people.html">People</a>
+    <a href="greywater.html">Greywater</a>
+    <a href="waste.html">Zero Waste</a>
+    <a href="crossword.html">Crossword</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+<div class="page-hero">
+  <p class="eyebrow">School Action Project</p>
+  <h1>Zero Waste Classroom</h1>
+  <p>Tracking waste from source to destination — and cutting it at every step</p>
+</div>
+<div class="container">
+
+  <div class="card">
+    <p class="card-label">The four types of classroom waste</p>
+    <h2>Segregation starts here</h2>
+    <p>Before we can dispose of waste responsibly, we need four separate bins in every classroom — not just one. Here's what goes where:</p>
+    <div class="waste-types">
+      <div class="waste-type wet">
+        <p class="tag">🟢 Wet / Biodegradable</p>
+        <h4>Compostable</h4>
+        <p>Food scraps, fruit peels, paper napkins, fallen leaves, flowers</p>
+      </div>
+      <div class="waste-type dry">
+        <p class="tag">🔵 Dry / Recyclable</p>
+        <h4>Recyclable</h4>
+        <p>Clean paper, cardboard, plastic bottles, metal cans, glass</p>
+      </div>
+      <div class="waste-type haz">
+        <p class="tag">🟡 Hazardous</p>
+        <h4>Special disposal</h4>
+        <p>Batteries, broken glass, chemical-soiled paper, old electronics</p>
+      </div>
+      <div class="waste-type rej">
+        <p class="tag">🔴 Reject / Landfill</p>
+        <h4>Cannot be recycled</h4>
+        <p>Soiled plastic wrap, broken pens, mixed-material packaging</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-label">Waste journey map</p>
+    <h2>Where does our waste actually go?</h2>
+    <p>Tracking the journey from classroom to final destination — documented for DPS Patna's waste stream.</p>
+    <div class="journey-steps">
+      <div class="journey-step">
+        <div class="j-icon">1</div>
+        <div class="j-body">
+          <h4>Generated in classroom</h4>
+          <p>Paper scraps, food wrappers, pen caps, water bottles — all mixed in one bin currently.</p>
+        </div>
+      </div>
+      <div class="journey-step">
+        <div class="j-icon">2</div>
+        <div class="j-body">
+          <h4>Collected by housekeeping staff</h4>
+          <p>Swept and bagged, usually twice a day — everything mixed together regardless of type.</p>
+        </div>
+      </div>
+      <div class="journey-step">
+        <div class="j-icon">3</div>
+        <div class="j-body">
+          <h4>Moved to school dumpster</h4>
+          <p>All waste consolidated at a central point. No segregation at this stage.</p>
+        </div>
+      </div>
+      <div class="journey-step">
+        <div class="j-icon">4</div>
+        <div class="j-body">
+          <h4>Collected by municipal truck</h4>
+          <p>Patna Municipal Corporation collects from school — but mixes all waste together in the truck.</p>
+        </div>
+      </div>
+      <div class="journey-step">
+        <div class="j-icon">5</div>
+        <div class="j-body">
+          <h4>Seur Dumping Ground, Patna</h4>
+          <p>Most of Patna's waste ends up here — an unsegregated landfill site with no composting or recycling infrastructure.</p>
+        </div>
+      </div>
+      <div class="journey-step" style="padding-bottom: 0;">
+        <div class="j-icon" style="background: #c0392b;">!</div>
+        <div class="j-body">
+          <h4>Result: everything buried together</h4>
+          <p>Recyclable paper, compostable food, and hazardous material all end up buried in the same landfill — even though they could have been separated and processed differently at step 1.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-label">Zero waste action checklist</p>
+    <h2>Steps to become a model classroom</h2>
+    <p>Tick each step as your class completes it. Progress is tracked below.</p>
+    <ul class="checklist" id="checklist">
+      <li onclick="toggle(this)"><div class="check-box"></div><span>Set up 4 separate bins with clear labels in the classroom</span></li>
+      <li onclick="toggle(this)"><div class="check-box"></div><span>Brief classmates on which waste goes where (5-min session)</span></li>
+      <li onclick="toggle(this)"><div class="check-box"></div><span>Assign a weekly "waste monitor" from the class on rotation</span></li>
+      <li onclick="toggle(this)"><div class="check-box"></div><span>Replace single-use plastic water bottles with refillable ones</span></li>
+      <li onclick="toggle(this)"><div class="check-box"></div><span>Start using both sides of paper before discarding</span></li>
+      <li onclick="toggle(this)"><div class="check-box"></div><span>Set up a paper collection drive — donate to kabadiwala weekly</span></li>
+      <li onclick="toggle(this)"><div class="check-box"></div><span>Compost wet waste — connect with school garden team</span></li>
+      <li onclick="toggle(this)"><div class="check-box"></div><span>Document waste reduction with weekly weight measurements</span></li>
+      <li onclick="toggle(this)"><div class="check-box"></div><span>Present progress to school authorities with data</span></li>
+      <li onclick="toggle(this)"><div class="check-box"></div><span>Share findings in The Green Gene reader's column</span></li>
+    </ul>
+    <div class="progress-bar"><div class="progress-fill" id="pbar" style="width:0%"></div></div>
+    <p class="progress-label" id="plabel">0 of 10 steps completed</p>
+  </div>
+
+</div>
+<footer>
+  <strong>The Green Gene</strong> · A SEWA Project · Patna, Bihar<br>
+  Created under the CBSE Work Experience Programme 2025–26 ·
+  <a href="contact.html">Contact the editor</a>
+</footer>
+<script>
+function toggle(li) {
+  li.classList.toggle('done');
+  updateProgress();
+}
+function updateProgress() {
+  const total = document.querySelectorAll('#checklist li').length;
+  const done = document.querySelectorAll('#checklist li.done').length;
+  document.getElementById('pbar').style.width = (done/total*100) + '%';
+  document.getElementById('plabel').textContent = done + ' of ' + total + ' steps completed';
+}
+</script>
+</body>
+</html>

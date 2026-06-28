@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Greywater Reuse | The Green Gene</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --green: #2d6a4f; --green-light: #52b788; --green-pale: #d8f3dc; --ink: #1b1b1b; --muted: #555; --border: #ccc; --bg: #f9f6f0; --white: #fff; }
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; }
+nav { background: var(--green); padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 56px; position: sticky; top: 0; z-index: 100; }
+.nav-logo { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1.2rem; font-weight: 700; text-decoration: none; }
+.nav-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+.nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.82rem; }
+.nav-links a:hover { color: var(--white); }
+.page-hero { background: var(--green); color: var(--white); padding: 3rem 2rem 2.5rem; text-align: center; border-bottom: 4px solid var(--green-light); }
+.page-hero .eyebrow { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green-light); margin-bottom: 0.5rem; }
+.page-hero h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; }
+.page-hero p { color: rgba(255,255,255,0.75); margin-top: 0.5rem; font-size: 0.95rem; }
+.container { max-width: 760px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+.card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 1.75rem 2rem; margin-bottom: 1.5rem; }
+.card-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); font-weight: 600; margin-bottom: 0.4rem; }
+.card h2 { font-family: 'Playfair Display', serif; font-size: 1.3rem; margin-bottom: 0.9rem; }
+.card p { color: var(--muted); font-size: 0.93rem; margin-bottom: 0.7rem; }
+.highlight { background: var(--green-pale); border-left: 3px solid var(--green); padding: 1rem 1.25rem; border-radius: 0 8px 8px 0; margin: 0.75rem 0; }
+.highlight p { color: #2d4a3e; margin: 0; font-size: 0.91rem; }
+.step-list { list-style: none; counter-reset: steps; margin-top: 0.75rem; }
+.step-list li { counter-increment: steps; display: flex; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid #eee; font-size: 0.91rem; color: var(--muted); align-items: flex-start; }
+.step-list li:last-child { border: none; }
+.step-num { width: 28px; height: 28px; border-radius: 50%; background: var(--green); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; flex-shrink: 0; }
+.method-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 0.75rem; }
+.method-card { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+.method-card .icon { font-size: 1.5rem; margin-bottom: 0.4rem; }
+.method-card h4 { font-size: 0.9rem; font-weight: 600; color: var(--ink); margin-bottom: 0.3rem; }
+.method-card p { font-size: 0.82rem; color: var(--muted); margin: 0; }
+.letter-box { background: #fffdf7; border: 1px dashed var(--border); border-radius: 8px; padding: 1.5rem 1.75rem; font-size: 0.9rem; color: var(--ink); line-height: 1.9; }
+.letter-box .letter-head { margin-bottom: 1rem; }
+.letter-box .letter-close { margin-top: 1rem; }
+footer { background: var(--green); color: rgba(255,255,255,0.7); text-align: center; padding: 2rem; font-size: 0.85rem; }
+footer strong { color: var(--white); }
+footer a { color: var(--green-light); text-decoration: none; }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">🌿 The Green Gene</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="archive.html">Issues</a>
+    <a href="species.html">New Species</a>
+    <a href="people.html">People</a>
+    <a href="greywater.html">Greywater</a>
+    <a href="waste.html">Zero Waste</a>
+    <a href="crossword.html">Crossword</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+<div class="page-hero">
+  <p class="eyebrow">School Action Project</p>
+  <h1>Greywater Reuse in Schools</h1>
+  <p>A practical proposal for DPS Patna — saving water that's already been used once</p>
+</div>
+<div class="container">
+
+  <div class="card">
+    <p class="card-label">What is greywater?</p>
+    <h2>The water we're wasting every day</h2>
+    <p>Greywater is wastewater from sinks, handwashing stations, and drinking water fountain overflows — water that doesn't contain sewage. Unlike blackwater (from toilets), greywater is safe to reuse for certain purposes with minimal treatment.</p>
+    <div class="highlight">
+      <p>A school with 1,000 students generates an estimated 3,000–5,000 litres of greywater every day just from handwashing stations. Almost all of it goes directly into the drain.</p>
+    </div>
+    <p>Greywater reuse is already mandated in several Indian states and is encouraged by CBSE's own SEWA environmental guidelines as part of sustainable school practices.</p>
+  </div>
+
+  <div class="card">
+    <p class="card-label">Where greywater comes from in a school</p>
+    <h2>Sources in DPS Patna</h2>
+    <div class="method-grid">
+      <div class="method-card"><div class="icon">🚿</div><h4>Handwashing stations</h4><p>Outside classrooms, near canteen, labs — highest volume source</p></div>
+      <div class="method-card"><div class="icon">🥤</div><h4>Water cooler overflow</h4><p>Coolers often overflow or have drainage that goes to waste</p></div>
+      <div class="method-card"><div class="icon">🧹</div><h4>Mopping water</h4><p>After corridor and classroom cleaning — lightly soiled only</p></div>
+      <div class="method-card"><div class="icon">🧪</div><h4>Science lab sinks</h4><p>Rinsing equipment, washing glassware — non-chemical only</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-label">Proposed reuse methods</p>
+    <h2>What to do with the greywater</h2>
+    <div class="method-grid">
+      <div class="method-card"><div class="icon">🌱</div><h4>Garden irrigation</h4><p>Direct pipe from handwashing stations to school garden beds</p></div>
+      <div class="method-card"><div class="icon">🚽</div><h4>Toilet flushing</h4><p>Collected in rooftop tank, gravity-fed to toilet cisterns</p></div>
+      <div class="method-card"><div class="icon">🧽</div><h4>Floor cleaning</h4><p>Reuse collected water for corridor mopping (second use)</p></div>
+      <div class="method-card"><div class="icon">🌳</div><h4>Tree watering</h4><p>Pipe overflow water to tree base channels in campus</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="card-label">Implementation steps</p>
+    <h2>How to actually set this up</h2>
+    <ul class="step-list">
+      <li><span class="step-num">1</span> Map all greywater sources in school — mark on campus layout, estimate volume per day per source.</li>
+      <li><span class="step-num">2</span> Present proposal to school authorities with this page as supporting material.</li>
+      <li><span class="step-num">3</span> Start with the simplest fix: redirect one handwashing station drain to a nearby garden bed using a PVC pipe.</li>
+      <li><span class="step-num">4</span> Install collection drums under water coolers. Label them and assign students to use this water for plants.</li>
+      <li><span class="step-num">5</span> Document before and after water usage. Use water meter readings if available.</li>
+      <li><span class="step-num">6</span> Present findings at school assembly or in the next issue of The Green Gene.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <p class="card-label">Template letter for school authorities</p>
+    <h2>Draft proposal to submit</h2>
+    <div class="letter-box">
+      <div class="letter-head">
+        To,<br>
+        The Principal,<br>
+        Delhi Public School, Patna
+      </div>
+      Subject: Proposal for Greywater Reuse System — SEWA Environmental Initiative<br><br>
+      Respected Ma'am/Sir,<br><br>
+      As part of my CBSE SEWA project (The Green Gene environmental newsletter), I have researched and prepared a proposal to implement a simple greywater reuse system on our campus.<br><br>
+      Our school generates an estimated 3,000–5,000 litres of greywater daily from handwashing stations and water coolers. Currently, this water is discharged into drains. By redirecting it to garden irrigation and toilet flushing, we can reduce our water consumption significantly at minimal cost.<br><br>
+      I would be grateful for an opportunity to present this proposal in detail. I have prepared a full implementation plan including source mapping, material requirements, and estimated savings.<br><br>
+      This initiative aligns with CBSE's SEWA environmental guidelines and could serve as a model for other schools in the city.<br><br>
+      <div class="letter-close">
+        Thanking you,<br>
+        Ayushman<br>
+        Class X · Roll No. P-1661-16<br>
+        SEWA Project: The Green Gene
+      </div>
+    </div>
+  </div>
+
+</div>
+<footer>
+  <strong>The Green Gene</strong> · A SEWA Project · Patna, Bihar<br>
+  Created under the CBSE Work Experience Programme 2025–26 ·
+  <a href="contact.html">Contact the editor</a>
+</footer>
+</body>
+</html>

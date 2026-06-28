@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eco Quiz | The Green Gene</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --green: #2d6a4f; --green-light: #52b788; --green-pale: #d8f3dc; --ink: #1b1b1b; --muted: #555; --border: #ccc; --bg: #f9f6f0; --white: #fff; }
+body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--ink); line-height: 1.7; }
+nav { background: var(--green); padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; height: 56px; position: sticky; top: 0; z-index: 100; }
+.nav-logo { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1.2rem; font-weight: 700; text-decoration: none; }
+.nav-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+.nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 0.82rem; }
+.nav-links a:hover { color: var(--white); }
+.page-hero { background: var(--green); color: var(--white); padding: 3rem 2rem 2.5rem; text-align: center; border-bottom: 4px solid var(--green-light); }
+.page-hero .eyebrow { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--green-light); margin-bottom: 0.5rem; }
+.page-hero h1 { font-family: 'Playfair Display', serif; font-size: 2.2rem; }
+.page-hero p { color: rgba(255,255,255,0.75); margin-top: 0.5rem; font-size: 0.95rem; }
+.container { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+/* QUIZ */
+.quiz-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.5rem; }
+.quiz-progress-wrap { flex: 1; min-width: 150px; }
+.progress-bar { background: #ddd; border-radius: 100px; height: 8px; }
+.progress-fill { background: var(--green); height: 100%; border-radius: 100px; transition: width 0.4s; }
+.progress-label { font-size: 0.8rem; color: var(--muted); margin-top: 0.25rem; }
+.score-display { font-size: 0.88rem; font-weight: 600; color: var(--green); }
+
+.question-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; margin-bottom: 1.25rem; display: none; }
+.question-card.active { display: block; }
+.q-category { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green); font-weight: 600; margin-bottom: 0.5rem; }
+.q-text { font-size: 1.05rem; font-weight: 600; color: var(--ink); margin-bottom: 1.25rem; line-height: 1.5; }
+.options { display: flex; flex-direction: column; gap: 0.5rem; }
+.option { background: var(--bg); border: 1.5px solid var(--border); border-radius: 8px; padding: 0.65rem 1rem; font-size: 0.92rem; cursor: pointer; transition: all 0.15s; text-align: left; font-family: 'Inter', sans-serif; color: var(--ink); display: flex; align-items: center; gap: 0.75rem; }
+.option:hover:not(:disabled) { border-color: var(--green-light); background: var(--green-pale); }
+.option.correct { background: var(--green-pale); border-color: var(--green); color: var(--green); font-weight: 600; }
+.option.wrong { background: #ffe5e5; border-color: #e57373; color: #c0392b; }
+.option:disabled { cursor: default; }
+.opt-letter { width: 26px; height: 26px; border-radius: 50%; border: 1.5px solid var(--border); display: flex; align-items: center; justify-content: center; font-size: 0.75rem; font-weight: 700; flex-shrink: 0; }
+.option.correct .opt-letter { background: var(--green); border-color: var(--green); color: white; }
+.option.wrong .opt-letter { background: #e57373; border-color: #e57373; color: white; }
+.explanation { background: var(--green-pale); border-radius: 8px; padding: 0.75rem 1rem; margin-top: 0.75rem; font-size: 0.87rem; color: #2d4a3e; display: none; }
+.explanation.show { display: block; }
+.next-btn { margin-top: 1rem; background: var(--green); color: var(--white); border: none; border-radius: 8px; padding: 0.6rem 1.5rem; font-size: 0.9rem; cursor: pointer; font-family: 'Inter', sans-serif; display: none; }
+.next-btn.show { display: inline-block; }
+.next-btn:hover { background: #1e4d38; }
+
+/* RESULTS */
+.results-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 2.5rem 2rem; text-align: center; display: none; }
+.results-card.show { display: block; }
+.results-score { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--green); }
+.results-label { font-size: 0.9rem; color: var(--muted); margin-bottom: 1rem; }
+.results-msg { font-size: 1rem; color: var(--ink); margin-bottom: 1.5rem; }
+.restart-btn { background: var(--green); color: var(--white); border: none; border-radius: 8px; padding: 0.65rem 1.5rem; font-size: 0.92rem; cursor: pointer; font-family: 'Inter', sans-serif; }
+.restart-btn:hover { background: #1e4d38; }
+
+footer { background: var(--green); color: rgba(255,255,255,0.7); text-align: center; padding: 2rem; font-size: 0.85rem; margin-top: 3rem; }
+footer strong { color: var(--white); }
+footer a { color: var(--green-light); text-decoration: none; }
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="index.html">🌿 The Green Gene</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="archive.html">Issues</a>
+    <a href="species.html">New Species</a>
+    <a href="people.html">People</a>
+    <a href="greywater.html">Greywater</a>
+    <a href="waste.html">Zero Waste</a>
+    <a href="crossword.html">Crossword</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+<div class="page-hero">
+  <p class="eyebrow">Activity Section</p>
+  <h1>Eco Quiz</h1>
+  <p>15 questions across water, biodiversity, pollution, and more</p>
+</div>
+<div class="container">
+  <div class="quiz-header">
+    <div class="quiz-progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="qpbar" style="width:0%"></div></div>
+      <p class="progress-label" id="qplabel">Question 1 of 15</p>
+    </div>
+    <div class="score-display" id="scoreDisplay">Score: 0</div>
+  </div>
+
+  <div id="quiz-container"></div>
+  <div class="results-card" id="results">
+    <div class="results-score" id="finalScore">0/15</div>
+    <div class="results-label">Your final score</div>
+    <div class="results-msg" id="resultsMsg"></div>
+    <button class="restart-btn" onclick="restart()">Try again</button>
+  </div>
+</div>
+<footer>
+  <strong>The Green Gene</strong> · A SEWA Project · Patna, Bihar<br>
+  Created under the CBSE Work Experience Programme 2025–26 ·
+  <a href="contact.html">Contact the editor</a>
+</footer>
+<script>
+const questions = [
+  { category:"Water", q:"What percentage of Earth's water is freshwater?", opts:["A) 50%","B) 25%","C) 3%","D) 10%"], ans:2, exp:"Only about 3% of Earth's water is freshwater — and most of that is locked in glaciers and ice caps, leaving less than 1% accessible for human use." },
+  { category:"Water", q:"Which Indian city was first to make rainwater harvesting compulsory?", opts:["A) Mumbai","B) Chennai","C) Delhi","D) Bangalore"], ans:1, exp:"Chennai made rainwater harvesting compulsory in 2003 after severe water shortages. The city saw significant improvement in groundwater levels within a few years." },
+  { category:"Atmosphere", q:"Which gas is mainly responsible for the greenhouse effect?", opts:["A) Oxygen","B) Nitrogen","C) Carbon dioxide","D) Argon"], ans:2, exp:"Carbon dioxide (CO2), along with methane and water vapour, traps heat from the sun in the Earth's atmosphere — the greenhouse effect." },
+  { category:"Atmosphere", q:"The ozone layer is found in which part of Earth's atmosphere?", opts:["A) Troposphere","B) Stratosphere","C) Mesosphere","D) Thermosphere"], ans:1, exp:"The ozone layer sits in the stratosphere, 15–35 km above Earth. It absorbs 97–99% of the sun's harmful ultraviolet radiation." },
+  { category:"Biodiversity", q:"India has how many globally recognised biodiversity hotspots?", opts:["A) 1","B) 2","C) 4","D) 6"], ans:2, exp:"India has 4 biodiversity hotspots: the Himalayas, the Western Ghats, the Indo-Burma region, and the Sundaland (Nicobar Islands)." },
+  { category:"Biodiversity", q:"What does IUCN stand for?", opts:["A) International Union for Conservation of Nature","B) Indian Union for Climate Navigation","C) International Unit for Carbon Numbers","D) Indian Union for Conservation Networks"], ans:0, exp:"IUCN stands for International Union for Conservation of Nature. It maintains the Red List — the world's most comprehensive inventory of threatened species." },
+  { category:"Pollution", q:"PM2.5 refers to particles smaller than:", opts:["A) 2.5 cm","B) 2.5 mm","C) 2.5 micrometres","D) 2.5 nanometres"], ans:2, exp:"PM2.5 are fine particles smaller than 2.5 micrometres. They are dangerous because they penetrate deep into lungs and enter the bloodstream, causing heart and lung diseases." },
+  { category:"Pollution", q:"Which country is the world's largest emitter of CO2?", opts:["A) USA","B) India","C) China","D) Russia"], ans:2, exp:"China is currently the world's largest emitter of CO2, responsible for about 30% of global emissions, followed by the USA and India." },
+  { category:"Waste", q:"Organic waste constitutes approximately what percentage of India's municipal solid waste?", opts:["A) 10–15%","B) 35–40%","C) 60–70%","D) 80–90%"], ans:1, exp:"Organic waste makes up 35–40% of India's municipal solid waste. This is actually good news — it means nearly half our waste could be composted instead of landfilled." },
+  { category:"Waste", q:"Which of these is NOT biodegradable?", opts:["A) Food scraps","B) Cotton cloth","C) Plastic bag","D) Wooden chopsticks"], ans:2, exp:"Plastic bags are not biodegradable. They break down into microplastics over hundreds of years but never fully decompose. Microplastics are now found in human blood and lungs." },
+  { category:"India & Environment", q:"Project Tiger was launched in India in which year?", opts:["A) 1952","B) 1973","C) 1984","D) 1991"], ans:1, exp:"Project Tiger was launched in 1973 under PM Indira Gandhi. India's tiger population has grown from ~1,800 in 1973 to over 3,100 today — one of conservation's great success stories." },
+  { category:"India & Environment", q:"The Chipko Movement was primarily about:", opts:["A) Water conservation","B) Air pollution","C) Protecting forests from logging","D) Solar energy adoption"], ans:2, exp:"Chipko (meaning 'to hug') was a 1973 forest conservation movement in Uttarakhand where villagers, mostly women, hugged trees to prevent loggers from cutting them down." },
+  { category:"Renewables", q:"Which country generates the most solar energy in the world?", opts:["A) USA","B) Germany","C) China","D) India"], ans:2, exp:"China leads the world in solar energy capacity by a large margin. India ranks 4th and is growing rapidly — PM Surya Ghar scheme targets 10 million households." },
+  { category:"Oceans", q:"The Great Pacific Garbage Patch is primarily made of:", opts:["A) Fishing boats","B) Microplastics","C) Industrial chemicals","D) Seaweed"], ans:1, exp:"The Great Pacific Garbage Patch is mostly microplastics — tiny fragments from broken-down plastic products. It covers an estimated 1.6 million km², twice the size of Texas." },
+  { category:"Climate", q:"The Paris Agreement aims to limit global warming to below:", opts:["A) 1°C above pre-industrial levels","B) 1.5–2°C above pre-industrial levels","C) 3°C above pre-industrial levels","D) 0.5°C above pre-industrial levels"], ans:1, exp:"The Paris Agreement (2015) aims to limit warming to well below 2°C, preferably 1.5°C above pre-industrial levels. Currently we're on track for ~2.7°C." },
+];
+
+let current = 0;
+let score = 0;
+let answered = [];
+
+function buildQuiz() {
+  const container = document.getElementById('quiz-container');
+  container.innerHTML = '';
+  questions.forEach((q, i) => {
+    const card = document.createElement('div');
+    card.className = 'question-card' + (i===0?' active':'');
+    card.id = `q${i}`;
+    const opts = q.opts.map((o,j) => `
+      <button class="option" onclick="answer(${i},${j})">
+        <span class="opt-letter">${['A','B','C','D'][j]}</span>
+        <span>${o.substring(3)}</span>
+      </button>`).join('');
+    card.innerHTML = `
+      <p class="q-category">${q.category}</p>
+      <p class="q-text">${i+1}. ${q.q}</p>
+      <div class="options">${opts}</div>
+      <div class="explanation" id="exp${i}">${q.exp}</div>
+      <button class="next-btn" id="next${i}" onclick="nextQ(${i})">${i<questions.length-1?'Next question →':'See results'}</button>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function answer(qi, selected) {
+  if(answered[qi] !== undefined) return;
+  answered[qi] = selected;
+  const card = document.getElementById(`q${qi}`);
+  const opts = card.querySelectorAll('.option');
+  opts.forEach((o,j) => {
+    o.disabled = true;
+    if(j === questions[qi].ans) o.classList.add('correct');
+    else if(j === selected) o.classList.add('wrong');
+  });
+  if(selected === questions[qi].ans) score++;
+  document.getElementById(`exp${qi}`).classList.add('show');
+  document.getElementById(`next${qi}`).classList.add('show');
+  document.getElementById('scoreDisplay').textContent = `Score: ${score}`;
+}
+
+function nextQ(qi) {
+  document.getElementById(`q${qi}`).classList.remove('active');
+  current = qi + 1;
+  if(current < questions.length) {
+    document.getElementById(`q${current}`).classList.add('active');
+    updateProgress();
+  } else {
+    showResults();
+  }
+}
+
+function updateProgress() {
+  const pct = (current / questions.length) * 100;
+  document.getElementById('qpbar').style.width = pct + '%';
+  document.getElementById('qplabel').textContent = `Question ${current+1} of ${questions.length}`;
+}
+
+function showResults() {
+  document.getElementById('results').classList.add('show');
+  document.getElementById('qpbar').style.width = '100%';
+  document.getElementById('qplabel').textContent = 'Completed!';
+  document.getElementById('finalScore').textContent = `${score}/${questions.length}`;
+  const pct = score/questions.length;
+  let msg = '';
+  if(pct === 1) msg = 'Perfect score! You\'re an eco champion 🌿';
+  else if(pct >= 0.8) msg = 'Excellent! You know your environment really well.';
+  else if(pct >= 0.6) msg = 'Good job! A bit more reading and you\'ll ace it.';
+  else if(pct >= 0.4) msg = 'Keep learning — every issue of The Green Gene will help!';
+  else msg = 'Don\'t worry — now you know more than you did before. Try again!';
+  document.getElementById('resultsMsg').textContent = msg;
+}
+
+function restart() {
+  current = 0; score = 0; answered = [];
+  document.getElementById('results').classList.remove('show');
+  document.getElementById('scoreDisplay').textContent = 'Score: 0';
+  buildQuiz();
+  updateProgress();
+}
+
+buildQuiz();
+updateProgress();
+</script>
+</body>
+</html>
